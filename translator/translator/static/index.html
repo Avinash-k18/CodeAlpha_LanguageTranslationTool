@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bridge – Language Translator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>Bridge</h1>
+    <p>Type in any language. Read it in yours.</p>
+  </header>
+
+  <div id="banner" role="alert" hidden></div>
+
+  <section class="board">
+    <div class="pane source">
+      <div class="bar">
+        <label for="src" class="sr">From</label>
+        <select id="src"></select>
+        <span id="detected" aria-live="polite"></span>
+      </div>
+      <textarea id="input" placeholder="Enter text to translate" maxlength="5000" aria-label="Text to translate"></textarea>
+      <div class="foot">
+        <span id="count">0 / 5000</span>
+        <button class="ghost" id="clear" type="button">Clear text</button>
+      </div>
+    </div>
+
+    <button id="swap" type="button" title="Swap languages" aria-label="Swap languages">⇄</button>
+
+    <div class="pane target">
+      <div class="bar">
+        <label for="tgt" class="sr">To</label>
+        <select id="tgt"></select>
+      </div>
+      <div id="output" dir="auto" aria-live="polite" class="empty">Your translation will appear here.</div>
+      <div class="foot">
+        <span id="note"></span>
+        <span class="tools">
+          <button class="ghost" id="speak" type="button">Listen</button>
+          <button class="ghost" id="copy" type="button">Copy translation</button>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <div class="actions">
+    <button id="go" type="button">Translate</button>
+    <span class="hint">Ctrl + Enter also translates</span>
+  </div>
+
+  <section id="history-wrap" hidden>
+    <div class="hist-head"><h2>Recent translations</h2><button class="ghost" id="clear-hist" type="button">Clear history</button></div>
+    <ul id="history"></ul>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
